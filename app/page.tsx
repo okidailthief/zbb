@@ -191,7 +191,7 @@ export default function HomePage() {
             <div className="grid sm:grid-cols-2 gap-4 mb-10">
               <ServiceCard
                 title="Ceremony"
-                description="Live acoustic music for your walk down the aisle. Personalized song selection."
+                description="Playlist management and microphones for your walk down the aisle. Personalized song selection."
                 index={0}
               />
               <ServiceCard
