@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import ScrollSection from "@/components/scroll-section";
@@ -86,6 +86,8 @@ const faqData = {
 };
 
 export default function HomePage() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <>
       {/* Section 1: Hero */}
@@ -93,7 +95,7 @@ export default function HomePage() {
         {/* Ken Burns background */}
         <motion.div
           className="absolute inset-0 z-0"
-          animate={{ scale: 1.08 }}
+          animate={shouldReduceMotion ? {} : { scale: 1.08 }}
           transition={{ duration: 20, ease: "linear" }}
         >
           <Image
@@ -290,8 +292,8 @@ export default function HomePage() {
 
           {/* Clip-path reveal */}
           <motion.div
-            initial={{ clipPath: "inset(20% 20% 20% 20% round 8px)" }}
-            whileInView={{ clipPath: "inset(0% 0% 0% 0% round 8px)" }}
+            initial={shouldReduceMotion ? {} : { clipPath: "inset(20% 20% 20% 20% round 8px)" }}
+            whileInView={shouldReduceMotion ? {} : { clipPath: "inset(0% 0% 0% 0% round 8px)" }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
