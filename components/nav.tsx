@@ -20,13 +20,23 @@ export default function Nav() {
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    const scrollOptions = { passive: true } as AddEventListenerOptions;
+    window.addEventListener("scroll", handleScroll, scrollOptions);
+    return () => window.removeEventListener("scroll", handleScroll, scrollOptions);
   }, []);
 
   useEffect(() => {
     setMenuOpen(false);
   }, [pathname]);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [menuOpen]);
 
   return (
     <header
@@ -50,6 +60,7 @@ export default function Nav() {
             <Link
               key={link.href}
               href={link.href}
+              aria-current={pathname === link.href ? "page" : undefined}
               className={`text-sm tracking-wide transition-colors ${
                 pathname === link.href
                   ? "text-[#d97706]"
@@ -73,7 +84,7 @@ export default function Nav() {
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label={menuOpen ? "Close menu" : "Open menu"}
         >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             {menuOpen ? (
               <path d="M6 6l12 12M6 18L18 6" />
             ) : (
@@ -90,7 +101,7 @@ export default function Nav() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 top-0 z-40 flex flex-col items-center justify-center gap-8 bg-[#1c1917]/98 backdrop-blur-lg md:hidden"
+            className="fixed inset-0 top-0 z-50 flex flex-col items-center justify-center gap-8 bg-[#1c1917]/98 backdrop-blur-lg md:hidden"
           >
             {[...links, { href: "/book", label: "Book Now" }].map(
               (link, i) => (
@@ -104,6 +115,7 @@ export default function Nav() {
                   <Link
                     href={link.href}
                     onClick={() => setMenuOpen(false)}
+                    aria-current={pathname === link.href ? "page" : undefined}
                     className={`text-2xl tracking-wide ${
                       link.href === "/book"
                         ? "text-[#d97706] font-semibold"
