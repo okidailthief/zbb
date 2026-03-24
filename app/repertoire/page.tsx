@@ -29,11 +29,30 @@ export default function RepertoirePage() {
           Top 40 to funk. Customizable setlists for your wedding, corporate
           event, or private party.
         </p>
+        <div className="mt-6 rounded-lg border border-[#d97706]/30 bg-[#d97706]/10 px-5 py-4 pl-5 border-l-4 border-l-[#d97706]">
+          <p className="text-sm font-semibold uppercase tracking-wider text-[#d97706]">
+            Already booked?
+          </p>
+          <p className="mt-1 text-[#d6d3d1]">
+            Submit your song requests using{" "}
+            <a
+              href="https://forms.gle/9ajZgzkCYgYJSEtf6"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#d97706] underline underline-offset-2 hover:text-[#f59e0b]"
+            >
+              this form
+            </a>
+            . The repertoire is always growing, so aim to submit between
+            30 and 7 days before your event. Plan for roughly 10
+            &ldquo;must-play&rdquo; songs per hour of performance.
+          </p>
+        </div>
       </ScrollSection>
 
-      <ScrollSection delay={0.2} className="mt-12">
+      <div className="mt-12">
         <SongList />
-      </ScrollSection>
+      </div>
     </div>
   );
 }

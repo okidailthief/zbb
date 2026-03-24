@@ -8,9 +8,10 @@ interface ParallaxImageProps {
   src: string;
   alt: string;
   className?: string;
+  objectPosition?: string;
 }
 
-export default function ParallaxImage({ src, alt, className = "" }: ParallaxImageProps) {
+export default function ParallaxImage({ src, alt, className = "", objectPosition = "center" }: ParallaxImageProps) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -26,6 +27,7 @@ export default function ParallaxImage({ src, alt, className = "" }: ParallaxImag
           alt={alt}
           fill
           className="object-cover"
+          style={{ objectPosition }}
           sizes="(max-width: 768px) 100vw, 50vw"
         />
       </motion.div>
@@ -36,6 +38,7 @@ export default function ParallaxImage({ src, alt, className = "" }: ParallaxImag
           alt={alt}
           fill
           className="object-cover"
+          style={{ objectPosition }}
           sizes="100vw"
         />
       </div>

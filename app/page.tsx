@@ -99,10 +99,10 @@ export default function HomePage() {
           transition={{ duration: 20, ease: "linear" }}
         >
           <Image
-            src="/images/zach-hero.webp"
+            src="/images/IMG_2928.webp"
             alt="Zach Bedell performing live"
             fill
-            className="object-cover"
+            className="object-cover object-[center_30%]"
             sizes="100vw"
             priority
           />
@@ -170,7 +170,7 @@ export default function HomePage() {
         <div className="grid md:grid-cols-2">
           {/* Left: Parallax image */}
           <ParallaxImage
-            src="/images/wedding-front.webp"
+            src="/images/wedding.jpeg"
             alt="Zach Bedell performing at a Charleston SC wedding"
             className="relative h-[500px] md:h-full"
           />
@@ -210,12 +210,20 @@ export default function HomePage() {
                 index={3}
               />
             </div>
-            <Link
-              href="/book"
-              className="inline-block self-start rounded-full bg-[#d97706] px-8 py-3 text-sm font-semibold uppercase tracking-wider text-[#1c1917] transition-colors hover:bg-[#b45309]"
-            >
-              Request Wedding Quote
-            </Link>
+            <div className="flex flex-wrap gap-4">
+              <Link
+                href="/book"
+                className="rounded-full bg-[#d97706] px-8 py-3 text-sm font-semibold uppercase tracking-wider text-[#1c1917] transition-colors hover:bg-[#b45309]"
+              >
+                Request Wedding Quote
+              </Link>
+              <Link
+                href="/wedding-services"
+                className="rounded-full border border-[#d97706] px-8 py-3 text-sm font-semibold uppercase tracking-wider text-[#d97706] transition-colors hover:bg-[#d97706] hover:text-[#1c1917]"
+              >
+                More Wedding Info →
+              </Link>
+            </div>
           </ScrollSection>
         </div>
       </section>
@@ -243,16 +251,16 @@ export default function HomePage() {
                 src="/images/zach-performance-2.webp"
                 alt="Zach Bedell live performance"
                 fill
-                className="object-cover transition-transform duration-700 hover:scale-105"
+                className="object-cover object-[center_30%] transition-transform duration-700 hover:scale-105"
                 sizes="(max-width: 768px) 100vw, 33vw"
               />
             </ScrollSection>
             <ScrollSection delay={0.15} className="relative h-72 md:h-96 overflow-hidden rounded-lg">
               <Image
-                src="/images/zach-event-1.webp"
+                src="/images/keys.jpeg"
                 alt="Zach Bedell at a private event"
                 fill
-                className="object-cover transition-transform duration-700 hover:scale-105"
+                className="object-cover object-[right_40%] transition-transform duration-700 hover:scale-105"
                 sizes="(max-width: 768px) 100vw, 33vw"
               />
             </ScrollSection>
@@ -261,7 +269,7 @@ export default function HomePage() {
                 src="/images/zach-stage-wide.webp"
                 alt="Zach Bedell wide stage shot"
                 fill
-                className="object-cover transition-transform duration-700 hover:scale-105"
+                className="object-cover object-[center_25%] transition-transform duration-700 hover:scale-105"
                 sizes="(max-width: 768px) 100vw, 33vw"
               />
             </ScrollSection>
@@ -318,15 +326,42 @@ export default function HomePage() {
       <section className="bg-[#1c1917] py-20 md:py-32">
         <div className="max-w-6xl mx-auto px-6">
           <ScrollSection className="text-center mb-14">
-            <p className="text-xs font-semibold uppercase tracking-widest text-[#d97706]">
+            <p className="text-xs font-semibold uppercase tracking-widest text-[#d97706] mb-3">
               Testimonials
             </p>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#fafaf9]">
+              What Couples Are Saying
+            </h2>
           </ScrollSection>
-          <Testimonial
-            quote="Zach performed at our wedding at Alhambra Hall and did an amazing job! He played live acoustic music during our cocktail hour, then announced and DJ'd during the reception — he did IT ALL! Our dance floor was completely full with hit after hit. Zach was extremely professional and responsive throughout the planning process. Our special day wouldn't have been nearly as fun without him!"
-            author="Kendal and Shea O'Connor"
-            event="Wedding at Alhambra Hall, Charleston SC"
-          />
+          <div className="grid md:grid-cols-2 gap-6">
+            <Testimonial
+              title="Life Of The Party"
+              quote="The band absolutely rocked our wedding! From the first song to the last, just about EVERYONE was on the dance floor. They played a perfect mix of musical genres that had all sorts of people wanting to get up and dance. So many of our guests commented on how amazing the band was. Zach had great professionalism and truly made our reception unforgettable."
+              author="Victoria & Dustin Plunkett"
+              event="Wedding at Hart Meadows Ranch, Charleston SC · Sept 2025"
+              delay={0}
+            />
+            <Testimonial
+              title="Everything was Amazing!"
+              quote="Zach and his bandmates did a fantastic job. The ceremony music was handled seamlessly, the evening entertainment was perfect. They did a wonderful job feeling the crowd. They were so cool that they flexed and let my dad play the drums for a song! What a memorable evening."
+              author="Julie"
+              event="Wedding at Seabrook Island, SC · Sept 2025"
+              delay={0.1}
+            />
+            <Testimonial
+              title="The absolute BEST wedding band you could ask for!!!"
+              quote="The music was PHENOMENAL and had all of our guests — from the youngest to the oldest — out on the dance floor. Zach and his band were professional and friendly throughout the entire process. He curated the perfect list of songs and also made an incredible cocktail hour DJ and MC. It was like being at a personalized and intimate concert!"
+              author="Kristen"
+              event="Wedding at Hart Meadows Ranch, Charleston SC · Nov 2024"
+              delay={0.2}
+            />
+            <Testimonial
+              quote="Zach performed at our wedding at Alhambra Hall and did an amazing job! He played live acoustic music during our cocktail hour, then announced and DJ'd during the reception — he did IT ALL! Our dance floor was completely full with hit after hit. Zach was extremely professional and responsive throughout the planning process."
+              author="Kendal & Shea O'Connor"
+              event="Wedding at Alhambra Hall, Charleston SC"
+              delay={0.3}
+            />
+          </div>
         </div>
       </section>
 
@@ -334,15 +369,26 @@ export default function HomePage() {
       <section className="bg-[#292524] py-20 md:py-32">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Photo */}
-            <ScrollSection direction="right" className="relative h-[500px] overflow-hidden rounded-lg">
-              <Image
-                src="/images/zach-portrait-1.webp"
-                alt="Zach Bedell portrait"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
+            {/* Photos */}
+            <ScrollSection direction="right" className="flex flex-col gap-4">
+              <div className="relative h-60 overflow-hidden rounded-lg">
+                <Image
+                  src="/images/wedding-front.webp"
+                  alt="Zach Bedell performing at a wedding"
+                  fill
+                  className="object-cover object-[center_35%]"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+              <div className="relative h-60 overflow-hidden rounded-lg">
+                <Image
+                  src="/images/zach-event-1.webp"
+                  alt="Zach Bedell at a private event"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
             </ScrollSection>
 
             {/* Text */}

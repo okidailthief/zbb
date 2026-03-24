@@ -10,12 +10,14 @@ const forms = [
     id: "wedding",
     label: "Wedding",
     url: "https://docs.google.com/forms/d/e/1FAIpQLSfrXS_hvr2rquE4812X1YWWnrQVehmctHURX_BFHB0c7euLdw/viewform?embedded=true",
+    directUrl: "https://forms.gle/mdwkxpiDttm3WWWN9",
     height: 5500,
   },
   {
     id: "event",
     label: "Private Event",
     url: "https://docs.google.com/forms/d/e/1FAIpQLSdDKIWbELNh4aEPtIOki9e-yOVkA8C8bBexFkmbF2lj6SSgpA/viewform?embedded=true",
+    directUrl: "https://forms.gle/2YUEC6vBXG7RwkXE8",
     height: 3100,
   },
 ];
@@ -59,6 +61,17 @@ export default function BookPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
         >
+          <p className="mb-3 text-sm text-[#a8a29e]">
+            Form not displaying correctly?{" "}
+            <a
+              href={current.directUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#d97706] underline hover:text-[#f59e0b]"
+            >
+              Open it in a new tab.
+            </a>
+          </p>
           <GoogleFormEmbed
             formUrl={current.url}
             title={`${current.label} Quote Request`}

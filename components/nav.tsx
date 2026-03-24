@@ -10,6 +10,7 @@ const links = [
   { href: "/video", label: "Video" },
   { href: "/shows", label: "Shows" },
   { href: "/repertoire", label: "Repertoire" },
+  { href: "/wedding-services", label: "Wedding Services" },
   { href: "/contact", label: "Contact" },
 ];
 

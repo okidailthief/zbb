@@ -8,11 +8,8 @@ export const metadata: Metadata = {
     "See upcoming live music shows and events with Zach Bedell in Charleston, SC and across the Southeast. Bar gigs, festivals, and public performances.",
 };
 
-// TODO: Replace with actual Google Calendar public embed URL
-// In Google Calendar: Settings → [calendar] → Integrate calendar → Embed code
-// Paste the src URL from the <iframe> tag here
 const CALENDAR_URL =
-  "https://calendar.google.com/calendar/embed?src=CALENDAR_ID_HERE&ctz=America/New_York&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=MONTH";
+  "https://calendar.google.com/calendar/embed?src=booking%40normalmusic.net&ctz=America%2FNew_York";
 
 export default function ShowsPage() {
   return (
@@ -26,7 +23,7 @@ export default function ShowsPage() {
       </ScrollSection>
 
       <ScrollSection delay={0.2} className="mt-12">
-        <GoogleCalendarEmbed calendarUrl={CALENDAR_URL} />
+        <GoogleCalendarEmbed calendarUrl={CALENDAR_URL} fallbackUrl={CALENDAR_URL} />
       </ScrollSection>
     </div>
   );
