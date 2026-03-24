@@ -151,6 +151,7 @@ export default function HomePage() {
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
+            aria-hidden="true"
           >
             <path
               strokeLinecap="round"
@@ -348,7 +349,7 @@ export default function HomePage() {
                 About
               </p>
               <h2 className="text-4xl md:text-5xl font-bold text-[#fafaf9] mb-6">
-                Zach Bedell
+                About Zach Bedell
               </h2>
               <p className="text-[#a8a29e] leading-relaxed mb-6">
                 Zach Bedell is a multi-instrumentalist and songwriter based in
