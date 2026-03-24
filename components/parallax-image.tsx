@@ -11,7 +11,7 @@ interface ParallaxImageProps {
 }
 
 export default function ParallaxImage({ src, alt, className = "" }: ParallaxImageProps) {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
@@ -20,7 +20,7 @@ export default function ParallaxImage({ src, alt, className = "" }: ParallaxImag
 
   return (
     <div ref={ref} className={`overflow-hidden ${className}`}>
-      <motion.div style={{ y }} className="hidden md:block h-full">
+      <motion.div style={{ y }} className="hidden md:block relative h-full">
         <Image
           src={src}
           alt={alt}
